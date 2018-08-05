@@ -55,9 +55,13 @@ gulp.task('js', function(){
     
     jsFILES.map(function(entry){
         return browserify({
-            entries: [jsFolder + entry]
+            entries: [jsFolder + entry],
+        },{
+            debug:true
         })
-        .transform(babelify, {presets:['env']})
+        .transform(babelify, {
+            sourceMaps: true
+        })
         .bundle()
         .pipe(source(entry))
         .pipe(rename({extname:'.min.js'}))

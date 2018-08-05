@@ -1,7 +1,7 @@
 {
   "name": "diligen",
   "version": "1.0.0",
-  "description": "filigen assessment app",
+  "description": "diligen assessment app",
   "main": "index.js",
   "dependencies": {
     "body-parser": "^1.18.3",
