@@ -1,13 +1,22 @@
 @import 'base/normalize';
 @import 'base/variables';
-@import url('https://fonts.googleapis.com/css?family=Muli|Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Modern+Antiqua|Roboto');
 
+// General
 body{
     background-color: $paper;
     color: $primary;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
+.flex-container{
+    display: flex;
+    width: 100%;
+}
+
+.flex-item{
+    display: inline-flex;
+}
 .hidden{
     position: absolute;
     width: 1px;
@@ -18,29 +27,40 @@ body{
     white-space: nowrap;
     border: 0;
 }
+.active{
+    color: $primary;
+    font-weight: bold;
+}
+.highlight{
+    background-color: #00ff626e;
+}
+.d-mobile{
+    display: none;
+}
 
+// Desktop
 h1, h2{
-    font-family: 'Muli', sans-serif;
+    font-family: 'Modern Antiqua', cursive;
     font-size: 1.4rem;
 }
 
 header{
-    font-family: 'Muli', sans-serif;
-    background: $primary; /* Old browsers */
-    background: -moz-linear-gradient(left, $primary 1%, $secondary 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(left, $primary 1%,$secondary 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to right, $primary 1%,$secondary 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$primary', endColorstr='$secondary',GradientType=1 ); /* IE6-9 */    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#47257e', endColorstr='#3c2e89',GradientType=1 ); /* IE6-9 */;
-    height: 3rem;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/$ternary+0$primary+100 */
+    background: $secondary; /* Old browsers */
+    background: -moz-linear-gradient(top, $secondary 0%, $primary 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, $secondary 0%,$primary 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, $secondary 0%,$primary 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$secondary', endColorstr='$primary',GradientType=0 ); /* IE6-9 */    width: 100%;
+    height: 3.5rem;
+
     h2{
         margin: 0 2rem;
-        line-height: 3rem;
+        line-height: 3.5rem;
         color: #ffffff;
         opacity: 0.8;
     }
 }
 
-// left nav
 #nav__pages{
     list-style: none;
     padding: 0;
@@ -51,50 +71,33 @@ header{
         cursor: pointer;
         text-align: center;
     }
-    .active{
-        color: $primary;
-        font-weight: bold;
-    }
-}
 
-// main
-main{
-    line-height: 2rem;
 }
-#body__paragraph--display{
-    background-color: $paper;    
-}
-.container{
-    display: flex;
-    width: 100%;
-}
-.left{
+.navigation{
     background: $left;
     color: #333;
     width: 25%;
     height: 100vh;
     padding: 0;
 }
-.right{
+.contents{
     background: $paper;
     width: 75%;
     padding: 5%;
     color: #424242;
 }
-.left,
-.right {
+.navigation,
+.contents {
   text-align: left;
-  display: inline-flex;
+  line-height: 2rem;
 }
 
-.highlight{
-    background-color: #00ff626e;
-}
+
 
 /* TABLET */
 @media screen and (max-width: 768px) {
     header>h2{
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         margin: 0 1rem;
     }
     // left nav
@@ -104,7 +107,7 @@ main{
             margin: 1.5rem 0;
         }
     }
-    .left{
+    .navigation{
         background: $left;
         color: #333;
         width: 30%;
@@ -115,43 +118,74 @@ main{
   
   /* MOBILE */
   @media screen and (max-width: 425px) {
+    .d-mobile{
+        display: block;
+    }
     header{
         overflow: hidden;
+
         h2{
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             margin: 0 1rem;
         }
     }
-    .container{
+    .flex-container, .flex-item{
         display: block;
-        width: 100%;
     }
     #nav__pages{
-        width: 100%;
         margin: 0;
         li{
             margin: 0 auto;
-            display: block;
             font-size: 0.8rem;
             margin: 0;
-            cursor: pointer;
-            text-align: center;
-            border-bottom: #a888db 1px solid;
+            border-bottom: $secondary 1px solid;
         }
 
     }
-    .left{
-        background: $left;
-        width: 100%;
-        height: 150px;
-        padding: 0;
-        overflow-y: scroll;
+    #nav__toggle{
+        display: inline-block;
+        margin: 10px;
+        cursor: pointer;
+        position: relative;
+        width: 32px;
+        height: 28px;
+        .bar{
+            border: #7a7a7a 1px solid;
+            display: inline-block;
+            width: 30px;
+            position: absolute;
+        }
+        .bar2{
+            position: relative;
+            top: -8px;
+        }
+        .bar3{
+            position: relative;
+            top: -30px;
+        }
     }
-    .right{
-        background: $paper;
-        color: #333;
-        text-align: left;
-        width: 80%;
+    .navigation{
+        width: 100%;
+        height: 0;
+        text-align: right;
+    }
+    #nav__pages{
+        display: none;
+        overflow-y: scroll;
+        height: 20vh;
+        padding: 0;
+    }
+    #nav__pages.nav__open{
+        display: block;
+    }
+    #nav__pages.nav__close{
+        display: none;
+    }
+    .contents--add-margin{
+        margin: 25vh 1rem 3rem 1rem;
+    }
+    .contents--remove-margin{
+        margin-top: 0vh  1rem 3rem 1rem;
     }
 
   }

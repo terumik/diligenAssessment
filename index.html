@@ -9,17 +9,23 @@
 </head>
 <body>
   
+
   <header>
     <h2>Harry Potter and the Chamber of Secrets</h2>
   </header>
-  
-  <main class="container">
-    <nav class="left">
+
+  <main class="flex-container">
+    <nav class="flex-item navigation">
       <h2 class="hidden">Main Navigation</h2>
-      <ul id="nav__pages">
+      <div id="nav__toggle" class="nav__toggle--button d-mobile">
+        <div class="bar bar1"></div>
+        <div class="bar bar2"></div>
+        <div class="bar bar3"></div>
+      </div>
+      <ul id="nav__pages" class="nav__close">
       </ul>
     </nav>
-    <section class="right">
+    <section id="contents" class="flex-item contents contents--remove-margin">
       <h3 class="hidden">Selected Paragraph</h3>
       <p id="body__paragraph--display">
         

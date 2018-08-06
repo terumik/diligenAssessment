@@ -1,4 +1,5 @@
 import Content from './content'
+import { log } from 'util';
 
 class Navigation{
 
@@ -9,6 +10,28 @@ class Navigation{
                 createNavLink(i)
             }
         })
+    }
+
+    toggleNavigation(){
+        let navigation = document.getElementById('nav__pages');
+        let navigationStatus = navigation.getAttribute('class');
+
+        let contents = document.getElementById('contents');
+        let contentsStatus = contents.getAttribute('class');
+        
+        if(navigationStatus == 'nav__close'){
+            navigation.classList.remove('nav__close');
+            navigation.classList.add('nav__open');
+
+            contents.classList.remove('contents--remove-margin');
+            contents.classList.add('contents--add-margin');
+        } else{
+            navigation.classList.remove('nav__open');
+            navigation.classList.add('nav__close');
+
+            contents.classList.remove('contents--add-margin');
+            contents.classList.add('contents--remove-margin');
+        }
     }
 }
 
@@ -38,6 +61,7 @@ function createNavLink(index){
 
 // 3. activate the link and get a paragraph
 function activateLink(e){
+    // remove/add .active
     let activeLink = document.getElementsByClassName('active')[0] ? 
     document.getElementsByClassName('active')[0] : 
     null;
@@ -47,6 +71,10 @@ function activateLink(e){
     }
     e.target.setAttribute('class', 'active');
 
+    // get the paragraph
     let content = new Content();
     content.getParagraphByIndex(e.target.id);
+
+    // change the url in the address bar
+    window.history.pushState("", "", e.target.id);
 }
