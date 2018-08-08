@@ -8,12 +8,29 @@
   <link rel="stylesheet" href="dist/css/style.min.css">
 </head>
 <body>
-  
-
+    
   <header>
     <h2>Harry Potter and the Chamber of Secrets</h2>
   </header>
 
+  <!-- Modal Window -->
+  <div id="modal__overlay" class="modal__overlay--show"></div>
+  <section id="login__modal" class="login__modal--show">
+    <span id="login__close">&times;</span>
+    <!-- wip: need method='post'? -->
+    <!-- <form> -->
+      <h3>User Login</h3>
+      <label for="login__email" class="d-block">Email</label>
+      <input type="email" id="login__email" class="d-block" required value="user1@email.com">
+      <label for="login__password" class="d-block">Password</label>
+      <input type="password" id="login__password" class="d-block" required value="User123">
+    <!-- </form> -->
+      <button id="login__button" class="d-block">Login</button>
+      <p>*work in progress</p>
+
+  </section>
+
+  <!-- Main Content  -->
   <main class="flex-container">
     <nav class="flex-item navigation">
       <h2 class="hidden">Main Navigation</h2>
@@ -32,7 +49,8 @@
       </p>
     </section>
   </main>
-
+  
+  </div> <!-- Modal overlay -->
   <script src="dist/js/script.min.js"></script>
 </body>
 </html>

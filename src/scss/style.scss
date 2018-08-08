@@ -37,6 +37,9 @@ body{
 .d-mobile{
     display: none;
 }
+.d-block{
+    display: block;
+}
 
 // Desktop
 h1, h2{
@@ -56,7 +59,7 @@ header{
     h2{
         margin: 0 2rem;
         line-height: 3.5rem;
-        color: #ffffff;
+        color: #fff;
         opacity: 0.8;
     }
 }
@@ -74,7 +77,7 @@ header{
 
 }
 .navigation{
-    background: $left;
+    background: $gray;
     color: #333;
     width: 25%;
     height: 100vh;
@@ -91,7 +94,87 @@ header{
   text-align: left;
   line-height: 2rem;
 }
+#login__modal{
+    background-color: $secondary;
+    opacity: 0.8;
+    width: 50%;
+    padding: 1rem;
+    margin: 0 auto;
+    position: absolute;
+    top: 30vh;
+    left: 25%;
+    border-radius: 3px;
+    box-shadow: 3px 3px 30px 3px #525252;
+    color: #fff;
+    z-index: 2;
 
+    h3{
+        letter-spacing: 0.3rem;
+        text-align: center;
+    }
+    form{
+        width: 70%;
+        margin: 0 auto;
+    }
+    label, input{
+        margin: 10px auto;
+    }
+    input, button{
+        position: relative;
+        width: 90%;
+        height: 2rem;
+        border: none;
+        outline: none;
+        border-radius: 3px;
+        padding: 2px 10px;
+        transition: 0.8s;
+    }
+    button{
+        margin: 40px auto 20px auto;
+        width: 95%;
+        height: 2rem;
+        background-color: $primary;
+        color: #fff;
+        letter-spacing: 0.1rem;
+    }
+    input{
+        color: #333;
+    }
+    input:focus{
+        top: 1px;
+    }
+    button:hover, button:focus{
+        opacity: 0.6;
+    }
+}
+.login__modal--show{
+    display: block;
+}
+.login__modal--close{
+    display: none;
+}
+#modal__overlay{
+	z-index: 1;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 120%;
+    background-color:#000;
+    opacity: 0.4;
+}
+.modal__overlay--show{
+	display: block;
+}
+.modal__overlay--hide{
+    display: none;
+}
+#login__close{
+    cursor: pointer;
+    font-size: 1.8rem;
+    position: relative;
+    left: 88%;
+}
 
 
 /* TABLET */
@@ -108,7 +191,7 @@ header{
         }
     }
     .navigation{
-        background: $left;
+        background: $gray;
         color: #333;
         width: 30%;
         height: 100vh;
@@ -140,7 +223,6 @@ header{
             margin: 0;
             border-bottom: $secondary 1px solid;
         }
-
     }
     #nav__toggle{
         display: inline-block;
@@ -172,7 +254,7 @@ header{
     #nav__pages{
         display: none;
         overflow-y: scroll;
-        height: 20vh;
+        height: 120px;
         padding: 0;
     }
     #nav__pages.nav__open{
@@ -182,7 +264,7 @@ header{
         display: none;
     }
     .contents--add-margin{
-        margin: 25vh 1rem 3rem 1rem;
+        margin: 12rem 1rem 3rem 1rem;
     }
     .contents--remove-margin{
         margin-top: 0vh  1rem 3rem 1rem;

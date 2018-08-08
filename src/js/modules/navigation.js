@@ -15,9 +15,7 @@ class Navigation{
     toggleNavigation(){
         let navigation = document.getElementById('nav__pages');
         let navigationStatus = navigation.getAttribute('class');
-
         let contents = document.getElementById('contents');
-        let contentsStatus = contents.getAttribute('class');
         
         if(navigationStatus == 'nav__close'){
             navigation.classList.remove('nav__close');
